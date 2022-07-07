@@ -2,6 +2,7 @@ body {
     background: url(img/bzzz.png);
     background-repeat: no-repeat;
     background-size: auto;
+    background-attachment: fixed;
 }
 
 /*
@@ -35,7 +36,7 @@ Lomake
 
 */
 
-.lomake {
+.havaintolomake {
     border: 1px solid #000;
     margin: 4px 0;
     padding: 4px;
@@ -44,13 +45,21 @@ Lomake
 
 }
 
+.kirjautumislomake {
+    border: 1px solid #000;
+    margin: 4px 0;
+    padding: 4px;
+    justify-content: space-between;
 
-    .lomakkeen_syotteet > * {
+}
+
+
+    .havaintolomakkeen_syotteet > * {
         margin-right: 0.5em;
     }
 
 
-    .lomakkeen_syotteet {
+    .havaintolomakkeen_syotteet {
         display: flex;
         justify-content: space-evenly;
     }
@@ -64,6 +73,32 @@ Lomake
         .havainnon_aika input {
             width: 40px;
         }
+
+
+
+    .kirjautumislomakkeen_syotteet {
+        padding-top: 10px;
+        display:  grid;
+        grid-gap: 5px;
+        grid-template-columns:  25% 1fr;
+
+    }
+
+
+        .kayttaja_kentta input {
+            width: 250px;
+        }
+
+
+        .salasana_kentta input {
+            width: 250px;
+        }
+
+
+    .kirjautumistietojen_laheta_nappi {
+            padding-top: 20px;
+            text-align: center;
+    }
 
 
 
@@ -98,6 +133,8 @@ td {
         background: red;
     }
 
-
+.kuvat {
+    max-width:  100%;
+}
 
 

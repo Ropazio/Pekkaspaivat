@@ -71,3 +71,24 @@ function muokkaa_havainto() {
     // Tähän tulee muokkaus
 }
 
+///////////////////////////////////////////////////////////////////////////////
+
+function tarkista_kirjautuminen($kayttaja, $salasana) {
+    global $pdo;
+
+    // Hae kayttaja tietokannasta kayttajat
+    $query = $pdo->prepare("SELECT salasana FROM kayttajat WHERE kayttaja = ?");
+    
+    $query->execute([$kayttaja]);
+    $kayttajan_salasana_tietokannassa = $query->fetch();
+
+    if (empty($kayttajan_salasana_tietokannassa)) {
+        return false;
+    }
+
+    if ($kayttajan_salasana_tietokannassa['salasana'] == $salasana) {
+        return true;
+    }
+
+    return false;
+}

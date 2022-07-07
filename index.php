@@ -36,8 +36,8 @@
         </div>
 
         <form method="POST" action="tallenna_havainto.php">
-            <div class="lomake">
-                <div class="lomakkeen_syotteet">
+            <div class="havaintolomake">
+                <div class="havaintolomakkeen_syotteet">
 
                     <div class="havainnon_pvm">
                         <label for="pvm">Pvm:</label>
@@ -99,19 +99,44 @@
 
         
         <div class="teksitosion_otsikko">
-            <h2>Havaintoja</h3>
+            <h2>Havaintoja</h2>
         </div>
 
         <div class="tekstiosio">
-            <h3>
-                <p>
-                    Pekka on keskikokoinen kimalainen, jonka on havaittu pölyttävän lähes poikkeuksetta mirrinmintussa.
-                </p>
-                <p>
-                    Elli on pieni kimalainen, joka on havaittu pölyttävän rusokkiamppelissa.
-                </p>
-            </h3>
+
+            <p>
+                Pekka on keskikokoinen kimalainen, jonka on havaittu pölyttävän lähes poikkeuksetta mirrinmintussa.
+            </p>
+            <p>
+                Elli on pieni kimalainen, joka on havaittu pölyttävän rusokkiamppelissa.
+            </p>
+            <p>
+                Kimalaisten sosiaalisesta ja kognitiivisesta käyttäytymisestä löytyy hyvin tietoa "Kognitio ja sosiaalinen informaationkäyttö kimalaisilla"-tutkielmasta, joka löytyy osoitteesta http://jultika.oulu.fi/files/nbnfioulu-201811303193.pdf.
+            </p>
+
         </div>
+
+        <div class="paivakirja">
+            <h2>Päiväkirja</h2>
+        </div>
+
+        <div class="paivakirjan_tekstiosio">
+            <p>
+                Kimalaisista ei ollut lainkaan havaintoja 23.6 - 4.7 välisellä ajalla (24.6 - 26.7 ei tehty havaintoja). Epäilen, että syynä voi olla noin viikon kestänyt hellejakso, kun aurinko porotti ja lämpöä oli noin kolmisenkymmentä Celsius-asetta.
+            </p>
+            <p>
+                Kimalainen ilmeistyi suorinta reittiä tutkimaan taas mirrinminttua hellejakson jälkeen 4.7. Epäilen, että kyseessä on Pekka. Nappasin kimalaisesta muutaman kuvan, jotka lisäisen sitten taas tänne sivulle. Täytyy merkitä havainnot taas tarkoin, jotta tutkimus saa jatkua. Tarkoitus olisi myöhemmin lisäillä keskiarvoista työaikaa havainnoiva kuvaaja sivustolle.
+            </p>
+            <p>
+                4.7 Parvekkeella havaittu kaksi kimalaista, jotka ovat keskenään melko saman kokoisia. Kimalaiset poistuivat vain hetkeksi, joten ehkä pesä on lähettyvillä.
+
+            </p>
+
+            <div>
+                <img src="img/pekka1.jpg" alt="Pekka 1" class="kuvat">
+                <img src="img/pekka2.jpg" alt="Pekka 2" class="kuvat">
+            </div>
+               
 
     </div>
 </body>
