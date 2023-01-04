@@ -1,5 +1,6 @@
 <?php
 require_once "tietokanta.php";
+session_start();
 
 function kirjautuminen($kayttaja, $salasana) : bool {
 
@@ -11,8 +12,9 @@ function kirjautuminen($kayttaja, $salasana) : bool {
         return false;
     }
 
-    // Jos käyttäjä Löytyy ja salasana ok, jatketaan pekkaspäiviin. 
-    header("Location: index.php");
+    // Jos käyttäjä Löytyy ja salasana ok, jatketaan pekkaspäiviin.
+    $_SESSION['LoggedIn'] = true;
+    header ("Location: index.php");
 }
 
 $kayttaja = $_POST['kayttaja'];
