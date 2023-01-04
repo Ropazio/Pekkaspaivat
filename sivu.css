@@ -5,118 +5,157 @@ body {
     background-attachment: fixed;
 }
 
-/*
+
+
+/******
 
 Koko sivu
 
-*/
+******/
+
+
 
 .sivu {
-    width: 400px;
+    width: 40%;
     max-width: 100%;
     margin: auto;
-    padding: 8px;
-    border: 1px solid #000;
+    padding: 14px;
+    border: 3px solid #318f4a;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     background: #fff;
-    opacity: 0.99;
+    font-family: Verdana, serif;
 }
 
 
-    .paaotsikko h1 {
-        color: #70ff50;
-        font-size: 40px;
-        text-align: center;
-    }
+.paaotsikko {
+    color: #43a35d;
+    font-size: 30px;
+    text-align: center;
+}
+
+.paaotsikko_kirjautuminen {
+    color: #43a35d;
+    font-size: 20px;
+    text-align: center;
+}
 
 
 
-/*
+/******
 
-Lomake
+Havaintolomake
 
-*/
+******/
+
+
 
 .havaintolomake {
-    border: 1px solid #000;
-    margin: 4px 0;
-    padding: 4px;
+    border: 1px solid #318f4a;
+    margin: 6px 0;
+    padding: 6px;
     display: flex;
     justify-content: space-between;
-
 }
+
+
+.havaintolomakkeen_syotteet > * {
+    margin-right: 1em;
+    margin-top: 0.2em;
+}
+
+
+.havaintolomakkeen_syotteet {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.havainnon_pvm input {
+    width: 70px;
+}
+
+
+.havainnon_aika input {
+    width: 40px;
+}
+
+
+/******
+
+Kirjautumislomake
+
+******/
+
+
 
 .kirjautumislomake {
-    border: 1px solid #000;
+    border: 1px solid #318f4a;
     margin: 4px 0;
-    padding: 4px;
+    padding: 10px;
     justify-content: space-between;
-
 }
 
 
-    .havaintolomakkeen_syotteet > * {
-        margin-right: 0.5em;
-    }
+.kirjautumislomakkeen_syotteet {
+    padding-top: 10px;
+    display:  grid;
+    grid-gap: 5px;
+    grid-template-columns:  25% 1fr;
+}
 
 
-    .havaintolomakkeen_syotteet {
-        display: flex;
-        justify-content: space-evenly;
-    }
+.kayttaja_kentta input {
+    width: 70%;
+}
 
 
-        .havainnon_pvm input {
-            width: 70px;
-        }
+.salasana_kentta input {
+    width: 70%;
+}
 
-
-        .havainnon_aika input {
-            width: 40px;
-        }
-
-
-
-    .kirjautumislomakkeen_syotteet {
-        padding-top: 10px;
-        display:  grid;
-        grid-gap: 5px;
-        grid-template-columns:  25% 1fr;
-
-    }
-
-
-        .kayttaja_kentta input {
-            width: 250px;
-        }
-
-
-        .salasana_kentta input {
-            width: 250px;
-        }
-
-
-    .kirjautumistietojen_laheta_nappi {
-            padding-top: 20px;
-            text-align: center;
-    }
-
-
+.napin_laatikko {
+    padding-top: 20px;
+    text-align: center;
+}
 
 /*
+Yhteiset napit
+*/
+
+.nappi {
+    background-color: #43a35d;
+    border-radius: 4px;
+    padding: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border: 1px solid #318f4a;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+    font-size: 1.05em;
+    color: white;
+}
+
+.nappi:hover {
+    transform: scale(1.05);
+    transition: 0.1s ease-out;
+}
+
+
+
+/******
 
 Taulukko
 
-*/
+******/
+
 
 
 table {
     width: 100%;
-    background: #ccc;
+    background: #D5D5D5;
     border-collapse: collapse;
 }
 
 table td, table th {
-    border: 1px solid #000;
+    border: 1px solid #318f4a;
     padding: 4px 6px;
 }
 
@@ -125,16 +164,52 @@ td {
 }
 
 
-    .solu_paikalla {
-        background: green;
-    }
+.solu_paikalla {
+    background: green;
+}
 
-    .solu_poissa {
-        background: red;
-    }
+.solu_poissa {
+    background: red;
+}
+
+
+
+/******
+
+Havaintolomake
+
+******/
+
+
+
+.tekstiosion_otsikko {
+    color: #318f4a;
+}
+
+.tekstiosio {
+
+}
 
 .kuvat {
     max-width:  100%;
 }
 
 
+/******
+
+Mobiilinäkymä
+
+******/
+
+@media(max-width: 576px) {
+
+    .sivu {
+        width: 100%;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .paaotsikko, .paaotsikko_kirjautuminen {
+        font-size: 20px;
+    }
+}

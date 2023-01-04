@@ -8,8 +8,9 @@
 </head>
 <body>
     <div class="sivu">
-        <div class="paaotsikko">
-            <h1>Pekkaspäivät - Kirjautuminen</h1>
+        <div class="paaotsikko_kirjautuminen">
+            <h1>Pekkaspäivät</h1>
+            <h2>Kirjautuminen</h2>
         </div>
 
         <form method="POST" action="kirjautuminen.php">
@@ -31,8 +32,8 @@
                     </div>
                 </div>
 
-                <div class="kirjautumistietojen_laheta_nappi">
-                    <button type="submit">Kirjaudu</button>
+                <div class="napin_laatikko">
+                    <button type="submit" class="nappi">Kirjaudu</button>
                 </div>
 
             </div>

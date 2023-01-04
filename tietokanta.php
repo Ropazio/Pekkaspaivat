@@ -1,6 +1,7 @@
 <?php
 require_once "yhteiset.php";
 
+
 // Tietokantayhteys
 
 $dbConfig = [
@@ -27,7 +28,9 @@ function hae_havainnot() {
     global $pdo, $MYSQL_DATE_FORMAT;
 
     // Hae kaikki havainnot
+    // $query = $pdo->query("SELECT * FROM havainnot WHERE kayttaja = ? ORDER BY pvmaika DESC");
     $query = $pdo->query("SELECT * FROM havainnot ORDER BY pvmaika DESC");
+    // $query->execute([$kayttaja]);
     $query->execute();
 
     $havainnot = $query->fetchAll();
@@ -57,7 +60,7 @@ function tallenna_havainto($datetime, $status) {
 
     // Tallenna uusi havainto
     $query = "INSERT INTO havainnot (pvmaika, status) VALUES (?, ?)";
-    $pdo->prepare($query)->execute([$datetime, !empty($status)]);
+    $res = $pdo->prepare($query)->execute([$datetime, $status ? 1 : 0]);
 }
 
 function poista_havainto($id) {

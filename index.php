@@ -1,7 +1,7 @@
 <?php
     require_once "yhteiset.php";
     require_once "tietokanta.php";
-
+    
     function tama_aika() {
         return date("H:i");
     }
@@ -55,8 +55,8 @@
                     </div>
                 </div>
 
-                <div class="havainnon_laheta_nappi">
-                    <button type="submit">Lähetä</button>
+                <div>
+                    <button type="submit" class="nappi">Lähetä</button>
                 </div>
             </div>
         </form>
@@ -98,7 +98,7 @@
         </table>
 
         
-        <div class="teksitosion_otsikko">
+        <div class="tekstiosion_otsikko">
             <h2>Havaintoja</h2>
         </div>
 
@@ -111,16 +111,16 @@
                 Elli on pieni kimalainen, joka on havaittu pölyttävän rusokkiamppelissa.
             </p>
             <p>
-                Kimalaisten sosiaalisesta ja kognitiivisesta käyttäytymisestä löytyy hyvin tietoa "Kognitio ja sosiaalinen informaationkäyttö kimalaisilla"-tutkielmasta, joka löytyy osoitteesta http://jultika.oulu.fi/files/nbnfioulu-201811303193.pdf.
+                Kimalaisten sosiaalisesta ja kognitiivisesta käyttäytymisestä löytyy hyvin tietoa "Kognitio ja sosiaalinen informaationkäyttö kimalaisilla"-tutkielmasta, joka löytyy osoitteesta <a href="http://jultika.oulu.fi/files/nbnfioulu-201811303193.pdf">http://jultika.oulu.fi/files/nbnfioulu-201811303193.pdf.</a>
             </p>
 
         </div>
 
-        <div class="paivakirja">
+        <div class="tekstiosion_otsikko">
             <h2>Päiväkirja</h2>
         </div>
 
-        <div class="paivakirjan_tekstiosio">
+        <div class="tekstiosio">
             <p>
                 Kimalaisista ei ollut lainkaan havaintoja 23.6 - 4.7 välisellä ajalla (24.6 - 26.7 ei tehty havaintoja). Epäilen, että syynä voi olla noin viikon kestänyt hellejakso, kun aurinko porotti ja lämpöä oli noin kolmisenkymmentä Celsius-asetta.
             </p>
