@@ -17,13 +17,11 @@
         return "Poissa";
     }
 
-    session_start();
-
-    if (!(isset($_SESSION['LoggedIn']) && $_SESSION['LoggedIn'] != '')) {
+    if (!(isset($_SESSION['kirjautunut']) && $_SESSION['kirjautunut'] != '')) {
         header ("Location: kirjautuminen.php");
     }
 
-    $rivit = hae_havainnot();
+    $rivit = hae_havainnot($_SESSION['kayttaja_id']);
 
 ?>
 

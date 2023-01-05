@@ -1,20 +1,22 @@
 <?php
 require_once "tietokanta.php";
-session_start();
 
 function kirjautuminen($kayttaja, $salasana) : bool {
 
     echo "Yritetään kirjautua: käyttäjä = '" . $kayttaja . "', salasana = '" . $salasana ."'.<br>";
  
     // Tarkistetaan käyttäjä ja salasana. Palataan kirjautumissivulle, jos ei löydy käyttäjää tai salasana on väärä.
-    if (tarkista_kirjautuminen($kayttaja, $salasana) == false) {
+    $id = tarkista_kirjautuminen($kayttaja, $salasana);
+    if (empty($id)) {
         header("Location: kirjautumissivu.php");
         return false;
     }
 
     // Jos käyttäjä Löytyy ja salasana ok, jatketaan pekkaspäiviin.
-    $_SESSION['LoggedIn'] = true;
+    $_SESSION['kirjautunut'] = true;
+    $_SESSION['kayttaja_id'] = $id;
     header ("Location: index.php");
+    return true;
 }
 
 $kayttaja = $_POST['kayttaja'];

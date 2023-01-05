@@ -24,17 +24,16 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 
 ///////////////////////////////////////////////////////////////////////////////
 
-function hae_havainnot() {
+function hae_havainnot($kayttaja_id) {
     global $pdo, $MYSQL_DATE_FORMAT;
 
     // Hae kaikki havainnot
-    // $query = $pdo->query("SELECT * FROM havainnot WHERE kayttaja = ? ORDER BY pvmaika DESC");
-    $query = $pdo->query("SELECT * FROM havainnot ORDER BY pvmaika DESC");
-    // $query->execute([$kayttaja]);
-    $query->execute();
+    $query = "SELECT * FROM havainnot WHERE kayttaja_id = ? ORDER BY pvmaika DESC";
+    //$query = $pdo->query("SELECT * FROM havainnot ORDER BY pvmaika DESC");
+    $sth = $pdo->prepare($query);
+    $sth->execute([$kayttaja_id]);
 
-    $havainnot = $query->fetchAll();
-    //echo print_r( $havainnot, true );
+    $havainnot = $sth->fetchAll();
 
     foreach ($havainnot as &$havainto) {
 
@@ -59,8 +58,8 @@ function tallenna_havainto($datetime, $status) {
     global $pdo;
 
     // Tallenna uusi havainto
-    $query = "INSERT INTO havainnot (pvmaika, status) VALUES (?, ?)";
-    $res = $pdo->prepare($query)->execute([$datetime, $status ? 1 : 0]);
+    $query = "INSERT INTO havainnot (pvmaika, status, kayttaja_id) VALUES (?, ?, ?)";
+    $pdo->prepare($query)->execute([$datetime, $status ? 1 : 0, $_SESSION['kayttaja_id']]);
 }
 
 function poista_havainto($id) {
@@ -80,18 +79,21 @@ function tarkista_kirjautuminen($kayttaja, $salasana) {
     global $pdo;
 
     // Hae kayttaja tietokannasta kayttajat
-    $query = $pdo->prepare("SELECT salasana FROM kayttajat WHERE kayttaja = ?");
+    $query = $pdo->prepare("SELECT salasana, id FROM kayttajat WHERE kayttaja = ?");
     
     $query->execute([$kayttaja]);
-    $kayttajan_salasana_tietokannassa = $query->fetch();
+    [$kayttaja_salasana_tietokannassa, $kayttaja_id_tietokannassa] = $query->fetch();
 
-    if (empty($kayttajan_salasana_tietokannassa)) {
-        return false;
+    // kirjautuminen epäonnistui
+    if (empty($kayttaja_salasana_tietokannassa)) {
+        return null;
     }
 
-    if ($kayttajan_salasana_tietokannassa['salasana'] == $salasana) {
-        return true;
+    // kirjautuminen onnistui
+    if ($kayttaja_salasana_tietokannassa == $salasana) {
+        return $kayttaja_id_tietokannassa;
     }
 
-    return false;
+    // kirjautuminen epäonnistui
+    return null;
 }
