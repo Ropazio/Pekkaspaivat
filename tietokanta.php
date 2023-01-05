@@ -127,12 +127,12 @@ function lataa_paivakirja($kayttaja_id) {
     return $paivakirjateksti;
 }
 
-function tallenna_merkinta($datetime, $status) {
+function tallenna_merkinta($datetime, $paivakirjateksti) {
     global $pdo;
 
     // Tallenna uusi päiväkirjamerkintä
-    $query = "INSERT INTO paivakirja (paivakirjateksti, kayttaja_id) VALUES (?, ?)";
-    $pdo->prepare($query)->execute([$datetime, $_SESSION['kayttaja_id']]);
+    $query = "INSERT INTO paivakirja (pvmaika, paivakirjateksti, kayttaja_id) VALUES (?, ?, ?)";
+    $pdo->prepare($query)->execute([$datetime, $paivakirjateksti, $_SESSION['kayttaja_id']]);
 }
 
 function poista_merkinta($id) {

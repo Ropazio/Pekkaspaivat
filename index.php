@@ -89,9 +89,9 @@
                             echo "<td>" . $rivi['pvm'] . "</td>";
                             echo "<td>" . $rivi['aika'] . "</td>";
                             echo "<td class='" . ($rivi['status'] ? "solu_paikalla" : "solu_poissa") . "'>" . muotoile_status($rivi['status']) . "</td>";
-                            echo "<td><a href='poista_havainto.php?id=" . $rivi['id'] . "'>Poista</a>";
-                            echo " ";
-                            echo "<a href='muokkaa_havainto.php?id=" . $rivi['id'] . "'>Muokkaa</a></td>";
+                            echo "<td><button class='merkintanappi'><a href='poista_havainto.php?id=" . $rivi['id'] . "'>Poista</a></button>";
+                            echo "&emsp;";
+                            echo "<button class='merkintanappi'><a href='muokkaa_havainto.php?id=" . $rivi['id'] . "'>Muokkaa</a></button></td>";
                             echo "</tr>";
                         }
 
@@ -123,20 +123,31 @@
                 else {
                     foreach ($tekstit as $teksti) {
                         echo "<b>" . $teksti['aika'] . "&emsp;" . $teksti['pvm'] . "</b>";
-                        echo "<p>" . $teksti['paivakirjateksti'] . "</p>";
+                        echo "<p>" . nl2br($teksti['paivakirjateksti']) . "</p>";
                         echo "<div class='poista_paivakirjamerkinta'>";
-                            echo "<a href='poista_paivakirjamerkinta.php?id=" . $teksti['id'] . "'>Poista merkintä</a>";
+                            echo "<button class='merkintanappi'><a href='poista_paivakirjamerkinta.php?id=" . $teksti['id'] . "'>Poista merkintä</a></button>";
                         echo "</div>";
                     }
                 }
             ?>
 
+            <form method="POST" action="lisaa_paivakirjamerkinta.php" class="kenttaosio">
+                <button type="button" class="kenttatoiminto merkintanappi">Lisää merkintä</button>
+                <div class="kentta">
+                    <div>
+                        <textarea name="paivakirjateksti" class="tekstikentta"></textarea>
+                    </div>
+                    <button type="submit" class="merkintanappi">Tallenna merkintä</button>
+                </div>
+            </form>
+
             <div>
                 <img src="img/pekka1.jpg" alt="Pekka 1" class="kuvat">
                 <img src="img/pekka2.jpg" alt="Pekka 2" class="kuvat">
-            </div>
-               
+            </div>   
 
     </div>
+
+<script type="text/javascript" src="tekstikentta.js"></script>
 </body>
 </html>

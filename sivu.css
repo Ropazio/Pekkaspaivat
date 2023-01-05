@@ -40,6 +40,10 @@ Koko sivu
 }
 
 
+a {
+    text-decoration: none;
+    color: white;
+}
 
 /******
 
@@ -188,6 +192,40 @@ Päiväkirjaosio
 .poista_paivakirjamerkinta {
     text-align: right;
     padding-bottom: 10px;
+}
+
+.lisaa_paivakirjamerkinta {
+
+}
+
+.merkintanappi {
+    background-color: #43a35d;
+    color: white;
+    padding: 3px;
+    border-radius: 2px;
+    font-size: 0.9em;
+    border: none;
+}
+
+.merkintanappi:hover {
+    transform: scale(1.02);
+}
+
+.kentta {
+    display: none;
+    overflow: hidden;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+.tekstikentta {
+    margin-top: 10px;
+    width: 100%;
+    height: 100px;
+}
+
+.kenttaosio {
+    padding-bottom: 20px;
 }
 
 .tekstiosion_otsikko {
