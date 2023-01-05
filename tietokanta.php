@@ -29,7 +29,6 @@ function hae_havainnot($kayttaja_id) {
 
     // Hae kaikki havainnot
     $query = "SELECT * FROM havainnot WHERE kayttaja_id = ? ORDER BY pvmaika DESC";
-    //$query = $pdo->query("SELECT * FROM havainnot ORDER BY pvmaika DESC");
     $sth = $pdo->prepare($query);
     $sth->execute([$kayttaja_id]);
 
@@ -96,4 +95,34 @@ function tarkista_kirjautuminen($kayttaja, $salasana) {
 
     // kirjautuminen epäonnistui
     return null;
+}
+
+//////////////////////////////////////////////////////////////////////////////
+
+function lataa_paivakirja($kayttaja_id) {
+    global $pdo, $MYSQL_DATE_FORMAT;
+
+    // Hae päiväkirjateksti tietokannasta päiväkirja
+    $query = "SELECT * FROM paivakirja WHERE kayttaja_id = ? ORDER BY pvmaika DESC";
+    $sth = $pdo->prepare($query);
+    $sth->execute([$kayttaja_id]);
+
+    $paivakirjateksti = $sth->fetchAll();
+
+    foreach ($paivakirjateksti as &$paivitys) {
+
+        // muuta datetime erilliseksi päivämääräksi ja ajaksi
+        $datetime = date_create_from_format($MYSQL_DATE_FORMAT, $paivitys['pvmaika']);
+        $pvm = $datetime->format('d.m.Y');
+        $aika = $datetime->format('H:i');
+
+        $paivitys = [
+            'id'                => $paivitys['id'],
+            'pvm'               => $pvm,
+            'aika'              => $aika,
+            'paivakirjateksti'  => $paivitys['paivakirjateksti'],
+        ];
+    }
+
+    return $paivakirjateksti;
 }

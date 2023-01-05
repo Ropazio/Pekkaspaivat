@@ -22,6 +22,7 @@
     }
 
     $rivit = hae_havainnot($_SESSION['kayttaja_id']);
+    $tekstit = lataa_paivakirja($_SESSION['kayttaja_id'])
 
 ?>
 
@@ -101,19 +102,8 @@
             </tbody>
         </table>
 
-        
-        <div class="tekstiosion_otsikko">
-            <h2>Havaintoja</h2>
-        </div>
 
         <div class="tekstiosio">
-
-            <p>
-                Pekka on keskikokoinen kimalainen, jonka on havaittu pölyttävän lähes poikkeuksetta mirrinmintussa.
-            </p>
-            <p>
-                Elli on pieni kimalainen, joka on havaittu pölyttävän rusokkiamppelissa.
-            </p>
             <p>
                 Kimalaisten sosiaalisesta ja kognitiivisesta käyttäytymisestä löytyy hyvin tietoa "Kognitio ja sosiaalinen informaationkäyttö kimalaisilla"-tutkielmasta, joka löytyy osoitteesta <a href="http://jultika.oulu.fi/files/nbnfioulu-201811303193.pdf">http://jultika.oulu.fi/files/nbnfioulu-201811303193.pdf.</a>
             </p>
@@ -121,10 +111,29 @@
         </div>
 
         <div class="tekstiosion_otsikko">
-            <h2>Päiväkirja</h2>
+            <h2>Havaintopäiväkirja</h2>
         </div>
 
         <div class="tekstiosio">
+            <?php
+
+                if (empty($tekstit)) {
+                    echo "<p>Ei päiväkirjamerkintöjä.<p>";
+                }
+                else {
+                    foreach ($tekstit as $teksti) {
+                            echo "<b>" . $teksti['aika'] . "&emsp;" . $teksti['pvm'] . "</b>";
+                            echo "<p>" . $teksti['paivakirjateksti'] . "</p>";
+                    }
+                }
+            ?>
+
+            <p>
+                Pekka on keskikokoinen kimalainen, jonka on havaittu pölyttävän lähes poikkeuksetta mirrinmintussa.
+            </p>
+            <p>
+                Elli on pieni kimalainen, joka on havaittu pölyttävän rusokkiamppelissa.
+            </p>
             <p>
                 Kimalaisista ei ollut lainkaan havaintoja 23.6 - 4.7 välisellä ajalla (24.6 - 26.7 ei tehty havaintoja). Epäilen, että syynä voi olla noin viikon kestänyt hellejakso, kun aurinko porotti ja lämpöä oli noin kolmisenkymmentä Celsius-asetta.
             </p>
