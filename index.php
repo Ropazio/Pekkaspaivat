@@ -122,28 +122,14 @@
                 }
                 else {
                     foreach ($tekstit as $teksti) {
-                            echo "<b>" . $teksti['aika'] . "&emsp;" . $teksti['pvm'] . "</b>";
-                            echo "<p>" . $teksti['paivakirjateksti'] . "</p>";
+                        echo "<b>" . $teksti['aika'] . "&emsp;" . $teksti['pvm'] . "</b>";
+                        echo "<p>" . $teksti['paivakirjateksti'] . "</p>";
+                        echo "<div class='poista_paivakirjamerkinta'>";
+                            echo "<a href='poista_paivakirjamerkinta.php?id=" . $teksti['id'] . "'>Poista merkintä</a>";
+                        echo "</div>";
                     }
                 }
             ?>
-
-            <p>
-                Pekka on keskikokoinen kimalainen, jonka on havaittu pölyttävän lähes poikkeuksetta mirrinmintussa.
-            </p>
-            <p>
-                Elli on pieni kimalainen, joka on havaittu pölyttävän rusokkiamppelissa.
-            </p>
-            <p>
-                Kimalaisista ei ollut lainkaan havaintoja 23.6 - 4.7 välisellä ajalla (24.6 - 26.7 ei tehty havaintoja). Epäilen, että syynä voi olla noin viikon kestänyt hellejakso, kun aurinko porotti ja lämpöä oli noin kolmisenkymmentä Celsius-asetta.
-            </p>
-            <p>
-                Kimalainen ilmeistyi suorinta reittiä tutkimaan taas mirrinminttua hellejakson jälkeen 4.7. Epäilen, että kyseessä on Pekka. Nappasin kimalaisesta muutaman kuvan, jotka lisäisen sitten taas tänne sivulle. Täytyy merkitä havainnot taas tarkoin, jotta tutkimus saa jatkua. Tarkoitus olisi myöhemmin lisäillä keskiarvoista työaikaa havainnoiva kuvaaja sivustolle.
-            </p>
-            <p>
-                4.7 Parvekkeella havaittu kaksi kimalaista, jotka ovat keskenään melko saman kokoisia. Kimalaiset poistuivat vain hetkeksi, joten ehkä pesä on lähettyvillä.
-
-            </p>
 
             <div>
                 <img src="img/pekka1.jpg" alt="Pekka 1" class="kuvat">

@@ -181,11 +181,14 @@ td {
 
 /******
 
-Havaintolomake
+Päiväkirjaosio
 
 ******/
 
-
+.poista_paivakirjamerkinta {
+    text-align: right;
+    padding-bottom: 10px;
+}
 
 .tekstiosion_otsikko {
     color: #318f4a;

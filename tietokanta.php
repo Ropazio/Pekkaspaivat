@@ -126,3 +126,18 @@ function lataa_paivakirja($kayttaja_id) {
 
     return $paivakirjateksti;
 }
+
+function tallenna_merkinta($datetime, $status) {
+    global $pdo;
+
+    // Tallenna uusi päiväkirjamerkintä
+    $query = "INSERT INTO paivakirja (paivakirjateksti, kayttaja_id) VALUES (?, ?)";
+    $pdo->prepare($query)->execute([$datetime, $_SESSION['kayttaja_id']]);
+}
+
+function poista_merkinta($id) {
+    global $pdo;
+
+    // Hae kaikki päiväkirjamerkinnät
+    $pdo->prepare("DELETE FROM paivakirja WHERE id = ?")->execute([$id]);
+}
