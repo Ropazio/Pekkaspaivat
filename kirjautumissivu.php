@@ -1,3 +1,7 @@
+<?php
+    require_once "tietokanta.php";
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,6 +40,11 @@
                     <button type="submit" class="nappi">Kirjaudu</button>
                 </div>
 
+                <?php if(isset($_GET['error'])): ?> 
+                    <div class="virhe" style="color: red;">
+                        Virheellinen käyttäjänimi tai salasana! Voit käyttää testikäyttäjänä käyttäjänimeä "Testi" ja salasanaa "Testi".
+                    </div>
+                <?php endif ?> 
             </div>
         </form>
     </div>

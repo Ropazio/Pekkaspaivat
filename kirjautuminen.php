@@ -8,7 +8,7 @@ function kirjautuminen($kayttaja, $salasana) : bool {
     // Tarkistetaan käyttäjä ja salasana. Palataan kirjautumissivulle, jos ei löydy käyttäjää tai salasana on väärä.
     $id = tarkista_kirjautuminen($kayttaja, $salasana);
     if (empty($id)) {
-        header("Location: kirjautumissivu.php");
+        header("Location: kirjautumissivu.php?error=vaarat_tunnukset");
         return false;
     }
 
