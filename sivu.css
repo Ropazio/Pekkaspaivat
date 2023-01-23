@@ -39,6 +39,10 @@ Koko sivu
     text-align: center;
 }
 
+.link {
+    text-decoration: none;
+    color: #318f4a;
+}
 
 a {
     text-decoration: none;

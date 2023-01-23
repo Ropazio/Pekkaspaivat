@@ -18,7 +18,7 @@
     }
 
     if (!(isset($_SESSION['kirjautunut']) && $_SESSION['kirjautunut'] != '')) {
-        header ("Location: kirjautuminen.php");
+        header ("Location: kirjautumissivu.php");
     }
 
     $rivit = hae_havainnot($_SESSION['kayttaja_id']);
@@ -105,7 +105,7 @@
 
         <div class="tekstiosio">
             <p>
-                Kimalaisten sosiaalisesta ja kognitiivisesta käyttäytymisestä löytyy hyvin tietoa "Kognitio ja sosiaalinen informaationkäyttö kimalaisilla"-tutkielmasta, joka löytyy osoitteesta <a href="http://jultika.oulu.fi/files/nbnfioulu-201811303193.pdf">http://jultika.oulu.fi/files/nbnfioulu-201811303193.pdf.</a>
+                Kimalaisten sosiaalisesta ja kognitiivisesta käyttäytymisestä löytyy hyvin tietoa "Kognitio ja sosiaalinen informaationkäyttö kimalaisilla"-tutkielmasta, joka löytyy osoitteesta <a class="link" href="http://jultika.oulu.fi/files/nbnfioulu-201811303193.pdf">http://jultika.oulu.fi/files/nbnfioulu-201811303193.pdf</a>.
             </p>
 
         </div>
