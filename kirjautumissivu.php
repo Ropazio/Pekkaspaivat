@@ -13,7 +13,14 @@
 <body>
     <div class="sivu">
         <div class="paaotsikko_kirjautuminen">
-            <h1>Pekkaspäivät</h1>
+            <?php
+                $talvikuukaudet = [1, 2, 3, 11, 12];
+                if (in_array(date("n"), $talvikuukaudet)) {
+                    echo "<h1>Pakkaspäivät</h1>";
+                } else {
+                    echo "<h1>Pekkaspäivät</h1>";
+                }
+            ?>
             <h2>Kirjautuminen</h2>
         </div>
 
@@ -48,5 +55,7 @@
             </div>
         </form>
     </div>
+
+<script type="text/javascript" src="sivun_tyyli.js"></script>
 </body>
 </html>

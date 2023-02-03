@@ -1,4 +1,4 @@
-// Function to open and shut collapsibles.//
+// Tekstikenttä näkyville napin painalluksesta. //
 
 var coll = document.getElementsByClassName("kenttatoiminto");
 var i;

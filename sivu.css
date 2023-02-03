@@ -13,6 +13,11 @@ Koko sivu
 
 ******/
 
+:root {
+    --green_colour: #43a35d;
+    --darker_green_colour: #318f4a;
+}
+
 
 
 .sivu {
@@ -20,7 +25,7 @@ Koko sivu
     max-width: 100%;
     margin: auto;
     padding: 14px;
-    border: 3px solid #318f4a;
+    border: 3px solid var(--darker_green_colour);
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     background: #fff;
     font-family: Verdana, serif;
@@ -28,20 +33,20 @@ Koko sivu
 
 
 .paaotsikko {
-    color: #43a35d;
+    color: var(--green_colour);
     font-size: 30px;
     text-align: center;
 }
 
 .paaotsikko_kirjautuminen {
-    color: #43a35d;
+    color: var(--green_colour);
     font-size: 20px;
     text-align: center;
 }
 
 .link {
     text-decoration: none;
-    color: #318f4a;
+    color: var(--darker_green_colour);
 }
 
 a {
@@ -58,7 +63,7 @@ Havaintolomake
 
 
 .havaintolomake {
-    border: 1px solid #318f4a;
+    border: 1px solid var(--darker_green_colour);
     margin: 6px 0;
     padding: 6px;
     display: flex;
@@ -96,7 +101,7 @@ Kirjautumislomake
 
 
 .kirjautumislomake {
-    border: 1px solid #318f4a;
+    border: 1px solid var(--darker_green_colour);
     margin: 4px 0;
     padding: 10px;
     justify-content: space-between;
@@ -135,12 +140,12 @@ Yhteiset napit
 */
 
 .nappi {
-    background-color: #43a35d;
+    background-color: var(--green_colour);
     border-radius: 4px;
     padding: 4px;
     padding-left: 8px;
     padding-right: 8px;
-    border: 1px solid #318f4a;
+    border: 1px solid var(--darker_green_colour);
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
     font-size: 1.05em;
     color: white;
@@ -168,7 +173,7 @@ table {
 }
 
 table td, table th {
-    border: 1px solid #318f4a;
+    border: 1px solid var(--darker_green_colour);
     padding: 4px 6px;
 }
 
@@ -203,7 +208,7 @@ Päiväkirjaosio
 }
 
 .merkintanappi {
-    background-color: #43a35d;
+    background-color: var(--green_colour);
     color: white;
     padding: 3px;
     border-radius: 2px;
@@ -233,7 +238,7 @@ Päiväkirjaosio
 }
 
 .tekstiosion_otsikko {
-    color: #318f4a;
+    color: var(--darker_green_colour);
 }
 
 .tekstiosio {
